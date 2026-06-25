@@ -1,0 +1,60 @@
+// /****************************************************
+//     文件：LoadLevelEventArgs.cs
+//     作者：k0itoyuu
+//     日期：#CreateTime#
+//     功能：Nothing
+// *****************************************************/
+// using System.Collections;
+// using System.Collections.Generic;
+// using UnityEngine;
+// using GameFramework.Event;
+// using GameFramework;
+// using Yuu.Data;
+//
+// namespace Yuu
+// {
+//     public class LoadLevelEventArgs : GameEventArgs
+//     {
+//         public static readonly int EventId = typeof(LoadLevelEventArgs).GetHashCode();
+//
+//         public LoadLevelEventArgs()
+//         {
+//             LevelData = null;
+//         }
+//
+//         public override int Id
+//         {
+//             get
+//             {
+//                 return EventId;
+//             }
+//         }
+//
+//         public LevelData LevelData
+//         {
+//             get;
+//             private set;
+//         }
+//
+//         public object UserData
+//         {
+//             get;
+//             private set;
+//         }
+//
+//         public static LoadLevelEventArgs Create(LevelData levelData, object userData = null)
+//         {
+//             LoadLevelEventArgs loadLevelEventArgs = ReferencePool.Acquire<LoadLevelEventArgs>();
+//             loadLevelEventArgs.LevelData = levelData;
+//             loadLevelEventArgs.UserData = userData;
+//             return loadLevelEventArgs;
+//         }
+//
+//         public override void Clear()
+//         {
+//             LevelData = null;
+//         }
+//     }
+//
+// }
+//

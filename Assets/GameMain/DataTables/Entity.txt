@@ -1,0 +1,4 @@
+﻿#	实体配置表				
+#	Id		Name	AssetId	EntityGroupId
+#	int		string	int	int
+#	配置编号	策划备注	物体名字	资源ID	实体组Id

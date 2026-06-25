@@ -1,0 +1,6 @@
+﻿#	场景配置表			
+#	Id		AssetId	Procedure
+#	int		int	string
+#	场景编号	备注	资源Id	流程名称
+	1	启动场景	101	
+	2	游戏场景	102	ProcedureGame

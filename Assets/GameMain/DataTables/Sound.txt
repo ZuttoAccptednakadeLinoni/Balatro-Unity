@@ -1,0 +1,4 @@
+﻿#	声音资源配置表					
+#	Id		Name	AssetId	SoundGroupId	SoundPlayParamId
+#	int		string	int	int	int
+#	声音编号	策划备注	物体名字	资源ID名称	声音组名称	声音播放参数

@@ -1,0 +1,512 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<UnityGameFramework>
+  <ResourceCollection>
+    <Resources>
+      <Resource Name="Configs/DataTableCodeTemplate" LoadType="0" Packed="False" />
+      <Resource Name="Configs/EnumTemplate" LoadType="0" Packed="False" />
+      <Resource Name="Configs/ResourceEditor" LoadType="0" Packed="False" />
+      <Resource Name="DataTables/Entity" LoadType="0" Packed="False" />
+      <Resource Name="DataTables/Item" LoadType="0" Packed="False" />
+      <Resource Name="DataTables/ItemGroup" LoadType="0" Packed="False" />
+      <Resource Name="DataTables/PoolParam" LoadType="0" Packed="False" />
+      <Resource Name="DataTables/Sound" LoadType="0" Packed="False" />
+      <Resource Name="DataTables/SoundGroup" LoadType="0" Packed="False" />
+      <Resource Name="DataTables/SoundPlayParam" LoadType="0" Packed="False" />
+      <Resource Name="DataTables/UIForm" LoadType="0" Packed="False" />
+      <Resource Name="DataTables/UIGroup" LoadType="0" Packed="False" />
+      <Resource Name="excel/AssetsPath" LoadType="0" Packed="False" />
+      <Resource Name="LICENSE" LoadType="0" Packed="False" />
+      <Resource Name="Localization/ChineseSimplified/Dictionaries/Default" LoadType="0" Packed="False" />
+      <Resource Name="README" LoadType="0" Packed="False" />
+      <Resource Name="Res/fonts/GoNotoCJKCore" LoadType="0" Packed="False" />
+      <Resource Name="Res/fonts/GoNotoCurrent-Bold" LoadType="0" Packed="False" />
+      <Resource Name="Res/fonts/m6x11plus" LoadType="0" Packed="False" />
+      <Resource Name="Res/fonts/NotoSans-Bold" LoadType="0" Packed="False" />
+      <Resource Name="Res/fonts/NotoSansJP-Bold" LoadType="0" Packed="False" />
+      <Resource Name="Res/fonts/NotoSansKR-Bold" LoadType="0" Packed="False" />
+      <Resource Name="Res/fonts/NotoSansSC-Bold" LoadType="0" Packed="False" />
+      <Resource Name="Res/fonts/NotoSansTC-Bold" LoadType="0" Packed="False" />
+      <Resource Name="Res/Materials/OldTVButton" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/ambientFire1" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/ambientFire2" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/ambientFire3" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/ambientOrgan1" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/button" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/cancel" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/card1" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/card3" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/cardFan2" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/cardSlide1" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/cardSlide2" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/chips1" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/chips2" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/coin1" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/coin2" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/coin3" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/coin4" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/coin5" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/coin6" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/coin7" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/crumple1" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/crumple2" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/crumple3" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/crumple4" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/crumple5" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/crumpleLong1" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/crumpleLong2" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/explosion1" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/explosion_buildup1" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/explosion_release1" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/foil1" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/foil2" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/generic1" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/glass1" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/glass2" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/glass3" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/glass4" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/glass5" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/glass6" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/gold_seal" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/gong" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/highlight1" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/highlight2" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/holo1" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/introPad1" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/magic_crumple" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/magic_crumple2" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/magic_crumple3" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/multhit1" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/multhit2" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/music1" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/music2" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/music3" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/music4" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/music5" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/negative" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/other1" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/paper1" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/polychrome1" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/slice1" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/splash_buildup" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/tarot1" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/tarot2" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/timpani" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/voice1" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/voice10" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/voice11" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/voice2" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/voice3" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/voice4" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/voice5" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/voice6" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/voice7" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/voice8" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/voice9" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/whoosh" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/whoosh1" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/whoosh2" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/whoosh_long" LoadType="0" Packed="False" />
+      <Resource Name="Res/sounds/win" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/8BitDeck" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/8BitDeck_opt2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/balatro" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/balatro_alt" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/BlindChips" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/boosters" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/chips" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/collabs/collab_AC_1" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/collabs/collab_AC_2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/collabs/collab_AU_1" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/collabs/collab_AU_2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/collabs/collab_BUG_1" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/collabs/collab_BUG_2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/collabs/collab_C7_1" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/collabs/collab_C7_2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/collabs/collab_CL_1" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/collabs/collab_CL_2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/collabs/collab_CR_1" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/collabs/collab_CR_2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/collabs/collab_CYP_1" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/collabs/collab_CYP_2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/collabs/collab_D2_1" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/collabs/collab_D2_2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/collabs/collab_DBD_1" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/collabs/collab_DBD_2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/collabs/collab_DS_1" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/collabs/collab_DS_2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/collabs/collab_DTD_1" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/collabs/collab_DTD_2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/collabs/collab_EG_1" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/collabs/collab_EG_2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/collabs/collab_FO_1" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/collabs/collab_FO_2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/collabs/collab_PC_1" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/collabs/collab_PC_2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/collabs/collab_R_1" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/collabs/collab_R_2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/collabs/collab_SK_1" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/collabs/collab_SK_2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/collabs/collab_STP_1" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/collabs/collab_STP_2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/collabs/collab_STS_1" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/collabs/collab_STS_2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/collabs/collab_SV_1" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/collabs/collab_SV_2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/collabs/collab_TBoI_1" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/collabs/collab_TBoI_2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/collabs/collab_TW_1" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/collabs/collab_TW_2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/collabs/collab_VS_1" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/collabs/collab_VS_2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/collabs/collab_WF_1" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/collabs/collab_WF_2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/collabs/collab_XR_1" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/collabs/collab_XR_2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/Enhancers" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/gamepad_ui" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/icons" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/Jokers" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/localthunk-logo" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/playstack-logo" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/ShopSignAnimation" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/stickers" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/tags" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/Tarots" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/ui_assets" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/ui_assets_opt2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/1x/Vouchers" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/8BitDeck" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/8BitDeck_opt2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/balatro" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/balatro_alt" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/BlindChips" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/boosters" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/chips" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/collabs/collab_AC_1" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/collabs/collab_AC_2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/collabs/collab_AU_1" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/collabs/collab_AU_2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/collabs/collab_BUG_1" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/collabs/collab_BUG_2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/collabs/collab_C7_1" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/collabs/collab_C7_2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/collabs/collab_CL_1" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/collabs/collab_CL_2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/collabs/collab_CR_1" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/collabs/collab_CR_2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/collabs/collab_CYP_1" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/collabs/collab_CYP_2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/collabs/collab_D2_1" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/collabs/collab_D2_2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/collabs/collab_DBD_1" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/collabs/collab_DBD_2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/collabs/collab_DS_1" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/collabs/collab_DS_2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/collabs/collab_DTD_1" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/collabs/collab_DTD_2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/collabs/collab_EG_1" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/collabs/collab_EG_2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/collabs/collab_FO_1" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/collabs/collab_FO_2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/collabs/collab_PC_1" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/collabs/collab_PC_2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/collabs/collab_R_1" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/collabs/collab_R_2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/collabs/collab_SK_1" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/collabs/collab_SK_2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/collabs/collab_STP_1" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/collabs/collab_STP_2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/collabs/collab_STS_1" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/collabs/collab_STS_2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/collabs/collab_SV_1" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/collabs/collab_SV_2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/collabs/collab_TBoI_1" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/collabs/collab_TBoI_2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/collabs/collab_TW_1" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/collabs/collab_TW_2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/collabs/collab_VS_1" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/collabs/collab_VS_2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/collabs/collab_WF_1" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/collabs/collab_WF_2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/collabs/collab_XR_1" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/collabs/collab_XR_2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/Enhancers" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/gamepad_ui" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/icons" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/Jokers" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/localthunk-logo" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/playstack-logo" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/ShopSignAnimation" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/stickers" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/tags" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/Tarots" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/ui_assets" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/ui_assets_opt2" LoadType="0" Packed="False" />
+      <Resource Name="Res/textures/2x/Vouchers" LoadType="0" Packed="False" />
+      <Resource Name="Shaders/Camera-OldTV" LoadType="0" Packed="False" />
+      <Resource Name="Shaders/UI-OldTV" LoadType="0" Packed="False" />
+      <Resource Name="UI/UIForms/Button" LoadType="0" Packed="False" />
+      <Resource Name="UI/UIForms/UIGameSettingForm" LoadType="0" Packed="False" />
+      <Resource Name="UI/UIForms/UIMainMenuForm" LoadType="0" Packed="False" />
+      <Resource Name="UI/UIForms/UIOptionsForm" LoadType="0" Packed="False" />
+    </Resources>
+    <Assets>
+      <Asset Guid="0065d3839ca9c62499f6d30fc748c0b1" ResourceName="DataTables/Entity" />
+      <Asset Guid="00df0748d95a55340ba508c01cc90212" ResourceName="Configs/ResourceEditor" />
+      <Asset Guid="00f7c828f0f5abd47bb3c60eaeb01856" ResourceName="Res/sounds/voice7" />
+      <Asset Guid="051b2e98f5af38847983d662a17f78b2" ResourceName="Res/textures/1x/collabs/collab_CYP_1" />
+      <Asset Guid="0540c2ae21437fe4d80f76a4da3d6096" ResourceName="Res/textures/1x/collabs/collab_VS_1" />
+      <Asset Guid="05cf67bac09ccba48b1fe435d702c8f5" ResourceName="Res/textures/2x/Jokers" />
+      <Asset Guid="05d55f02c80f9bf499144a2851391fc1" ResourceName="Res/textures/1x/collabs/collab_R_1" />
+      <Asset Guid="05eecffbe24b81f4dabfaaf5c77a32f2" ResourceName="Res/sounds/cancel" />
+      <Asset Guid="066602b8bc5ae33428ec6eb70cf3bff1" ResourceName="DataTables/Sound" />
+      <Asset Guid="06f6fcd979ff9cc47a25ede531db43e0" ResourceName="Res/textures/1x/collabs/collab_EG_2" />
+      <Asset Guid="07a74d139c5b8ad40bef3c71f1759d6e" ResourceName="Res/fonts/NotoSansJP-Bold" />
+      <Asset Guid="0936c5a73e414174da413e8a2ad7a202" ResourceName="Res/textures/2x/Vouchers" />
+      <Asset Guid="0a3181bd85758ee4bbf95b9e9c04f087" ResourceName="Res/textures/2x/icons" />
+      <Asset Guid="0acb20b3dc4a1d94f99fef2d528acdc1" ResourceName="UI/UIForms/Button" />
+      <Asset Guid="0b197027785653b42895fb77f387da71" ResourceName="Res/sounds/voice3" />
+      <Asset Guid="0c1b748b9db2e31498c468a45adac529" ResourceName="Res/textures/1x/collabs/collab_WF_1" />
+      <Asset Guid="0fbf796b6262c9449be272c6aa5a1cd6" ResourceName="Res/textures/1x/collabs/collab_CR_2" />
+      <Asset Guid="10f51faa54510884987976cb85904cfc" ResourceName="Res/sounds/foil2" />
+      <Asset Guid="112bbedb3a24db94ab1f3aac74a0149c" ResourceName="Res/textures/1x/gamepad_ui" />
+      <Asset Guid="11dc5f4ce678fb14a8ecffc2e8f92db7" ResourceName="Res/sounds/voice10" />
+      <Asset Guid="11feb3a832b183e48bd64ff342e0238e" ResourceName="Res/textures/2x/collabs/collab_STP_1" />
+      <Asset Guid="125fb11a75093274abb79ab6a4757ced" ResourceName="Res/sounds/whoosh1" />
+      <Asset Guid="13165d28cf5abe8468b1364eb74369de" ResourceName="Res/textures/1x/collabs/collab_D2_1" />
+      <Asset Guid="1326193e790975443a798488511a6660" ResourceName="Res/textures/2x/collabs/collab_SV_1" />
+      <Asset Guid="143a7b59ebb539e4ab54be40bf588533" ResourceName="Res/textures/2x/collabs/collab_EG_2" />
+      <Asset Guid="16126a7ce145cd646b4954abaa7daf12" ResourceName="UI/UIForms/UIGameSettingForm" />
+      <Asset Guid="168f298cc70e10540bdad99ec7c5335f" ResourceName="Res/sounds/cardFan2" />
+      <Asset Guid="17ea10842dc66e641916fdab74c7d4aa" ResourceName="UI/UIForms/UIOptionsForm" />
+      <Asset Guid="18af829e2756ed948a1ee0b68268d98f" ResourceName="Res/textures/2x/ShopSignAnimation" />
+      <Asset Guid="18ea17ee1fb2fd34e8a269d3d65d001c" ResourceName="Res/textures/2x/collabs/collab_CL_1" />
+      <Asset Guid="191a0aa537a15c049ad4c977a7b83d5d" ResourceName="DataTables/SoundPlayParam" />
+      <Asset Guid="194620063e760e14caa14acc5b1f0d38" ResourceName="Res/textures/2x/collabs/collab_WF_1" />
+      <Asset Guid="1acea68ab12353d44b5f1846a790a4b7" ResourceName="Res/sounds/coin4" />
+      <Asset Guid="1cc236a00db27d7458b007b8a49a8eac" ResourceName="Res/sounds/explosion_buildup1" />
+      <Asset Guid="1fa001101e841f7419502f9d4f1923ac" ResourceName="Res/sounds/music2" />
+      <Asset Guid="231b351120ed0bd46b2d400416f0767a" ResourceName="Res/textures/1x/collabs/collab_C7_1" />
+      <Asset Guid="2473d0dbcf6244440a7f29059a7fa86d" ResourceName="Res/sounds/button" />
+      <Asset Guid="26a3f7d51e4eea144a4558ea8a41e2ee" ResourceName="Res/textures/1x/collabs/collab_TW_2" />
+      <Asset Guid="26cced10122473b40b916e56503326ba" ResourceName="DataTables/PoolParam" />
+      <Asset Guid="26ec8f6fdcb4f9c418ebfbce544f595f" ResourceName="Res/textures/2x/Enhancers" />
+      <Asset Guid="2806cf831dc49ca4594c60d9b3540036" ResourceName="Res/sounds/generic1" />
+      <Asset Guid="280aa4f637c0ee34386ed06a98bc5881" ResourceName="Res/textures/1x/playstack-logo" />
+      <Asset Guid="2a637d97c3611fb49b562dfddcec4b48" ResourceName="Res/textures/2x/collabs/collab_CR_2" />
+      <Asset Guid="2a63bc388da61954094f2056a748033a" ResourceName="Res/textures/1x/collabs/collab_CL_1" />
+      <Asset Guid="2aeb31f94df2ddb43a9dda21ead185a2" ResourceName="Res/textures/1x/collabs/collab_PC_2" />
+      <Asset Guid="2af6ebe7451833647a8377551ac306c3" ResourceName="Res/sounds/glass5" />
+      <Asset Guid="2b0cdfa82512db841a3751a529291225" ResourceName="Res/sounds/crumpleLong2" />
+      <Asset Guid="2bee12f286152704a80dee9a3ae2987f" ResourceName="Res/sounds/gong" />
+      <Asset Guid="2db647c371c748643972d0f543c8a90f" ResourceName="DataTables/SoundPlayParam" />
+      <Asset Guid="2dc2cb1aaea398645b8236b9331298fc" ResourceName="Res/textures/2x/collabs/collab_R_1" />
+      <Asset Guid="2e95b04164e2d424a81b3b0976cff2f7" ResourceName="Res/textures/2x/stickers" />
+      <Asset Guid="2f4b4faed6a54524da1b777fca597d8f" ResourceName="Res/textures/2x/playstack-logo" />
+      <Asset Guid="30205e7907e9adf4bbad36858c2a5944" ResourceName="Res/sounds/whoosh" />
+      <Asset Guid="3063fae2ab7daf641a950e8012ba0838" ResourceName="Res/textures/1x/collabs/collab_WF_2" />
+      <Asset Guid="30dac29e67b5be245abd73fa96c8b025" ResourceName="Res/textures/2x/BlindChips" />
+      <Asset Guid="314d21cc1536b4b479a72ce05f556767" ResourceName="Res/textures/1x/collabs/collab_VS_2" />
+      <Asset Guid="316ea628eb723f6478b1ef679f3b9bd1" ResourceName="Res/textures/1x/collabs/collab_C7_2" />
+      <Asset Guid="318b84e03c7d62642b9dfe27b31c74a0" ResourceName="Res/sounds/crumple2" />
+      <Asset Guid="352dc0d8bc79dcb4daa88ef5c8b61ac3" ResourceName="Res/sounds/tarot1" />
+      <Asset Guid="3610a6ea617f06148a730d8e875e08c6" ResourceName="Res/textures/1x/collabs/collab_CL_2" />
+      <Asset Guid="36f8ee8d4872b804291c4f1ed2e03fc0" ResourceName="Res/textures/1x/collabs/collab_TW_1" />
+      <Asset Guid="370def65c7a61bd4fa9277ad3784fc19" ResourceName="Res/textures/1x/collabs/collab_TBoI_2" />
+      <Asset Guid="37a073957e03b89499a9989999a4a738" ResourceName="Res/textures/1x/collabs/collab_DTD_1" />
+      <Asset Guid="387c72db1f1e6a249ae4d55c4fc977f5" ResourceName="Res/sounds/paper1" />
+      <Asset Guid="3a71cdb17a32c64489de16dcb7f0064f" ResourceName="Res/textures/2x/8BitDeck_opt2" />
+      <Asset Guid="3a9f2ea9f36b7524bb42babcfceadc1f" ResourceName="Res/sounds/music4" />
+      <Asset Guid="3b4eeac2127a8f84f826d4eb4f2e7985" ResourceName="Res/textures/1x/collabs/collab_DBD_2" />
+      <Asset Guid="3bea99bd45a78474f81b60c9624a976a" ResourceName="Res/sounds/music5" />
+      <Asset Guid="3ea1ce7a10bc18746b146406ac5c1d01" ResourceName="Res/textures/1x/collabs/collab_STP_1" />
+      <Asset Guid="4018ed217737f5e45bc35386ae383348" ResourceName="Res/sounds/negative" />
+      <Asset Guid="42e8165519497e24bae1763f15f734c8" ResourceName="Res/textures/2x/collabs/collab_C7_1" />
+      <Asset Guid="42ef4782d29d46f47b14d441a56819f2" ResourceName="Res/textures/2x/collabs/collab_PC_1" />
+      <Asset Guid="4392aa8b17bb99642a4778c0e6c3e56f" ResourceName="Res/textures/1x/BlindChips" />
+      <Asset Guid="44531612433e9ff4ebc6ff242fdd12c0" ResourceName="DataTables/SoundGroup" />
+      <Asset Guid="44b20d00215a15e43adb131370a5b0ec" ResourceName="Res/textures/2x/collabs/collab_SV_2" />
+      <Asset Guid="458e9fbb7b956834e8ce142237ed477d" ResourceName="Res/textures/2x/collabs/collab_D2_2" />
+      <Asset Guid="4718818d2ea3adc4e8e3e6ff14d9bbd9" ResourceName="Res/sounds/cardSlide2" />
+      <Asset Guid="4728a07fe88ceda438001557d9c813e0" ResourceName="Res/textures/1x/collabs/collab_EG_1" />
+      <Asset Guid="4811fc668184a3d46bc91ca1691e6ef9" ResourceName="Res/sounds/whoosh_long" />
+      <Asset Guid="498a472fb69c26549ba75386a9045e83" ResourceName="Res/sounds/crumple5" />
+      <Asset Guid="49a2ac9032acc4648bc3ced318299931" ResourceName="Res/sounds/ambientFire2" />
+      <Asset Guid="4a3237ce68fb2e7449a8b00ca606ea00" ResourceName="Res/sounds/magic_crumple2" />
+      <Asset Guid="4a39066cf8e4c8e44bc40c1c1c6bf284" ResourceName="Res/fonts/NotoSansTC-Bold" />
+      <Asset Guid="4b684488b6e8a9f4889506eca7e43915" ResourceName="Res/sounds/holo1" />
+      <Asset Guid="4c7164a78ce9019498c56f257ed66591" ResourceName="Res/sounds/introPad1" />
+      <Asset Guid="4fc8419580ff58748bbdb9872a8484c3" ResourceName="Res/textures/2x/collabs/collab_STS_1" />
+      <Asset Guid="509a20d5a86f7fe42bde160645f5486c" ResourceName="DataTables/Sound" />
+      <Asset Guid="5172f473b03172b4ab3e78618e9f6911" ResourceName="Res/textures/2x/collabs/collab_BUG_1" />
+      <Asset Guid="51fea81a9507b7b43b15a4ba65efae08" ResourceName="Res/sounds/splash_buildup" />
+      <Asset Guid="5260ec77a2ba9a94b92a75c797a1fb26" ResourceName="Res/textures/1x/Enhancers" />
+      <Asset Guid="52f812e09acf76b42ac9499f2c9c850b" ResourceName="Res/textures/2x/collabs/collab_AU_1" />
+      <Asset Guid="5557dd23bfb683044bfef7477b8deea1" ResourceName="Res/textures/2x/collabs/collab_TBoI_2" />
+      <Asset Guid="57bb9102d1de8fd469aab1b240e054e7" ResourceName="Res/sounds/glass2" />
+      <Asset Guid="57bf7e446a639974ab46bdfe6abde116" ResourceName="Res/fonts/m6x11plus" />
+      <Asset Guid="5971ff278844757479f75215bd75175c" ResourceName="Res/sounds/other1" />
+      <Asset Guid="59e0175782b7a1941bb778710ea02834" ResourceName="Res/textures/2x/gamepad_ui" />
+      <Asset Guid="5c335ac6f9a93844190211cd95e0de28" ResourceName="Res/sounds/crumple3" />
+      <Asset Guid="5eb13c757a356534999686b0f7d9d166" ResourceName="Res/sounds/glass1" />
+      <Asset Guid="5ede6b60769b6ba46abb58168c0ac1a7" ResourceName="Res/textures/1x/tags" />
+      <Asset Guid="5eea3da838536bf478b960db46c9f885" ResourceName="Res/textures/1x/collabs/collab_TBoI_1" />
+      <Asset Guid="5ef6f292668a099438ea17c38be2e000" ResourceName="Res/sounds/polychrome1" />
+      <Asset Guid="5f07eee11cbebe446b7f19dde95d007c" ResourceName="Res/textures/2x/collabs/collab_CL_2" />
+      <Asset Guid="5fb6537824e503e4aaf072bfe1a825c5" ResourceName="Res/textures/2x/balatro_alt" />
+      <Asset Guid="60ad04a15e3aca94b908c30313940072" ResourceName="Res/textures/1x/chips" />
+      <Asset Guid="618cd8adfd431b344b8a60acf5faa7b5" ResourceName="Res/textures/2x/collabs/collab_STP_2" />
+      <Asset Guid="6359d21fbaed43b4394b36adcb9854ea" ResourceName="Res/textures/2x/collabs/collab_VS_1" />
+      <Asset Guid="657cc2bcfa9c83649bae953b4b7bbde0" ResourceName="Res/sounds/chips1" />
+      <Asset Guid="65f51bb7115cff94b9e95bfcc2295548" ResourceName="Res/textures/2x/ui_assets" />
+      <Asset Guid="66a5b796f19a71847ae6c2cc4f44ed8c" ResourceName="Res/textures/1x/collabs/collab_D2_2" />
+      <Asset Guid="66e5b2c023db15544a679af174d64451" ResourceName="DataTables/UIForm" />
+      <Asset Guid="68b11f5305e607a439dcfeb3a41b5148" ResourceName="Res/textures/2x/collabs/collab_AC_2" />
+      <Asset Guid="6946799d815802a4aba58ec0ff6c1f3d" ResourceName="Res/textures/1x/collabs/collab_AC_2" />
+      <Asset Guid="6a7fe1d7194f3a242bacaf5c96a7c125" ResourceName="Res/textures/1x/collabs/collab_SV_2" />
+      <Asset Guid="6c664ede52374de4e835e7bc787442f0" ResourceName="Res/textures/2x/collabs/collab_FO_2" />
+      <Asset Guid="6d2cab26281d744419c2c928564737ca" ResourceName="Res/textures/1x/collabs/collab_AC_1" />
+      <Asset Guid="6e17f0122597e0d4e9cc3508edf6c69c" ResourceName="Res/sounds/music1" />
+      <Asset Guid="6ff9b063e0fe1804eb7f2e3bcbafa0f1" ResourceName="Res/sounds/crumple4" />
+      <Asset Guid="719183b1727989643ab616e94ff358a3" ResourceName="Res/fonts/GoNotoCurrent-Bold" />
+      <Asset Guid="723f779a1e89f9d43a1d8eaffdec7d15" ResourceName="DataTables/ItemGroup" />
+      <Asset Guid="788c2abf4d6bd01449208ccce3f0654a" ResourceName="Res/sounds/coin7" />
+      <Asset Guid="793fe75084a975a4ba98aee773e1f626" ResourceName="Res/sounds/coin5" />
+      <Asset Guid="79763137d8371c842af05c97cf508340" ResourceName="LICENSE" />
+      <Asset Guid="7a0f5035bbe11304c9440b40cb04fc2d" ResourceName="Res/fonts/GoNotoCJKCore" />
+      <Asset Guid="7a591246d8faa6441a513e4740b2af9e" ResourceName="DataTables/UIGroup" />
+      <Asset Guid="7b7212a534a4519489cca95d147ac03a" ResourceName="Res/sounds/win" />
+      <Asset Guid="7b8c079d48d04ea46a145cada447d09e" ResourceName="Res/textures/2x/collabs/collab_VS_2" />
+      <Asset Guid="7d181a667029a2e4f88fde0a85aa6581" ResourceName="Res/sounds/voice5" />
+      <Asset Guid="7d9807a6b803df747a6e6a2a87e94ef1" ResourceName="DataTables/PoolParam" />
+      <Asset Guid="7e52a47948d8c404e81cd1633ed6b731" ResourceName="DataTables/UIForm" />
+      <Asset Guid="7ec942be795502e43b522a6e9c9c4848" ResourceName="Res/textures/1x/collabs/collab_FO_2" />
+      <Asset Guid="8043120e7b6e71547bb656a0e5876aea" ResourceName="Res/sounds/music3" />
+      <Asset Guid="8076da938f49c474b9de321d84f65f8f" ResourceName="DataTables/ItemGroup" />
+      <Asset Guid="80f8a528c8a42414b91ab45b865f4d53" ResourceName="Res/sounds/magic_crumple3" />
+      <Asset Guid="81d870412d645094a874663c6fdf54eb" ResourceName="Res/Materials/OldTVButton" />
+      <Asset Guid="8263b91c5cbfc9e4b80b9a7459226f55" ResourceName="Res/textures/1x/collabs/collab_STS_1" />
+      <Asset Guid="82bdee2d42a801341ad66b0d554e3219" ResourceName="Res/textures/1x/ui_assets_opt2" />
+      <Asset Guid="83869b95ee69a9d418d8004d31b3ef71" ResourceName="Res/textures/1x/collabs/collab_AU_2" />
+      <Asset Guid="8663060b85afdbb4db6d548910c062e4" ResourceName="Res/textures/2x/collabs/collab_SK_1" />
+      <Asset Guid="86724c5de9cdea7458273ea3e37ee2b3" ResourceName="Res/sounds/voice1" />
+      <Asset Guid="893e97c34a70e4d4f8ebed8c7143d315" ResourceName="Shaders/UI-OldTV" />
+      <Asset Guid="8b2c6f5e4bb0106478681294d5641502" ResourceName="Res/textures/1x/balatro_alt" />
+      <Asset Guid="8b476b0ba76bfcb48838ca94012e5d07" ResourceName="Res/sounds/voice6" />
+      <Asset Guid="8c31582451f37d24aa63c4ca873befa8" ResourceName="Res/textures/1x/collabs/collab_BUG_2" />
+      <Asset Guid="8c495b0ad94a93a4880ff9bd52fa519f" ResourceName="DataTables/SoundGroup" />
+      <Asset Guid="8d5d8a8efd270a148970eded390acd63" ResourceName="Res/textures/1x/collabs/collab_XR_1" />
+      <Asset Guid="8f38e823c5108714fb3c6e268eb9908c" ResourceName="Res/textures/1x/8BitDeck" />
+      <Asset Guid="92d8bc252569a1146a1f7f9abf2f004d" ResourceName="Res/sounds/coin1" />
+      <Asset Guid="949e27e340539684a9da6162f62015de" ResourceName="Res/textures/2x/collabs/collab_CYP_2" />
+      <Asset Guid="94dea3771e4edab42baf371e2b03a075" ResourceName="Res/textures/1x/Vouchers" />
+      <Asset Guid="9947826255236d5418992b13117a6828" ResourceName="Res/textures/1x/collabs/collab_CYP_2" />
+      <Asset Guid="9a406ba4743683e469692bdcdfd69273" ResourceName="Res/sounds/voice8" />
+      <Asset Guid="9bd351651e2001b47a232bf1d5355993" ResourceName="Res/textures/1x/collabs/collab_STP_2" />
+      <Asset Guid="9bd6be18d26fe73419074f7a800443d0" ResourceName="Shaders/Camera-OldTV" />
+      <Asset Guid="9c0ebf07df407984d8a9d7adf1700f50" ResourceName="Res/textures/2x/collabs/collab_DBD_1" />
+      <Asset Guid="9d905d65bd8550c4a9d4f160f1efac76" ResourceName="Res/textures/1x/collabs/collab_DS_2" />
+      <Asset Guid="a056f8d4305289f46b0d56a83d320311" ResourceName="Res/textures/1x/collabs/collab_DS_1" />
+      <Asset Guid="a17429ab04843fd459d4833d116555cb" ResourceName="Res/textures/2x/localthunk-logo" />
+      <Asset Guid="a8d8a0a7b15000d45900779a1e089e2b" ResourceName="Res/textures/2x/collabs/collab_FO_1" />
+      <Asset Guid="a98967f4016b3884db6238d275856dd8" ResourceName="Res/textures/2x/collabs/collab_D2_1" />
+      <Asset Guid="a9f46fb950726704bb46e305d57b43c0" ResourceName="Res/textures/1x/collabs/collab_FO_1" />
+      <Asset Guid="ab88e20541589a245b03cde34ce07e53" ResourceName="DataTables/Entity" />
+      <Asset Guid="ad4bb8d21f1d38040adff9357292d23a" ResourceName="Res/textures/1x/Jokers" />
+      <Asset Guid="ae61c0df64cd10948ba2faf94b17d3d2" ResourceName="Localization/ChineseSimplified/Dictionaries/Default" />
+      <Asset Guid="af4cdfee0cd562544b643543695e6841" ResourceName="Res/sounds/voice2" />
+      <Asset Guid="b02904d75bc37fa43874e25888c229ea" ResourceName="Res/textures/2x/Tarots" />
+      <Asset Guid="b1856e83d57823441918f1d7bd047072" ResourceName="Res/textures/1x/collabs/collab_PC_1" />
+      <Asset Guid="b3d90824b180cae44b6f927f6e787653" ResourceName="Res/textures/1x/ShopSignAnimation" />
+      <Asset Guid="b45a90a5d79bcd245a14243f17311218" ResourceName="Res/textures/2x/collabs/collab_DS_2" />
+      <Asset Guid="b4b41e1f0e77ce845985f01f8083f00f" ResourceName="Res/sounds/gold_seal" />
+      <Asset Guid="b5804ce74f1f4914eb1b33ef01e4e54e" ResourceName="Res/sounds/glass3" />
+      <Asset Guid="b62ebb74019d0e9418d590e9c23972da" ResourceName="Res/sounds/ambientOrgan1" />
+      <Asset Guid="b63083e8472b63340a65d273fec380a4" ResourceName="Res/textures/2x/8BitDeck" />
+      <Asset Guid="b65f63d92ddaebd48b30267e3b683c34" ResourceName="Res/fonts/NotoSansKR-Bold" />
+      <Asset Guid="b83a4c86293970a4893b03f1a9c45112" ResourceName="Res/textures/2x/collabs/collab_CR_1" />
+      <Asset Guid="b8c7ce9dd2442404ca4fddd1da31234f" ResourceName="Res/textures/1x/boosters" />
+      <Asset Guid="b92dc926c75850749a88d34f345fd6da" ResourceName="Res/textures/1x/collabs/collab_SK_1" />
+      <Asset Guid="b9401d75682998e489e45d878ee14580" ResourceName="Res/fonts/NotoSans-Bold" />
+      <Asset Guid="b9a174f12c4afe6478878bf7056f95d6" ResourceName="Res/sounds/timpani" />
+      <Asset Guid="ba6cb2e49792b5b4cabc00ec17d8695a" ResourceName="Res/sounds/crumple1" />
+      <Asset Guid="bb03796d5a57f82448cb2388dbdc63f0" ResourceName="Res/textures/2x/collabs/collab_C7_2" />
+      <Asset Guid="bb05de3df1b30334091a097bca0c81dd" ResourceName="Res/sounds/slice1" />
+      <Asset Guid="bb1dfdb1da1fe7a409373f0a2b376257" ResourceName="Res/textures/1x/collabs/collab_SK_2" />
+      <Asset Guid="bcc5db0bb372ef84a933a7312e111126" ResourceName="Res/textures/1x/8BitDeck_opt2" />
+      <Asset Guid="bdb3efc0c50eb5d4da5ac76556e0850c" ResourceName="Res/sounds/highlight1" />
+      <Asset Guid="be6c3a25428dd7040b445b4fc50ad100" ResourceName="Res/textures/2x/collabs/collab_XR_2" />
+      <Asset Guid="bf9392f86e5d5aa42b70ec6dd4c70208" ResourceName="Res/textures/2x/balatro" />
+      <Asset Guid="c0e91ea43e7c0894c8378bb5579e2981" ResourceName="Res/sounds/card1" />
+      <Asset Guid="c3a5b74554af94f4fadddffe6b3cbf37" ResourceName="Res/sounds/multhit2" />
+      <Asset Guid="c3c72c2589b382a458c41cd3254268c0" ResourceName="Res/textures/1x/collabs/collab_CR_1" />
+      <Asset Guid="c46cc322448b9174980b001cc3b68198" ResourceName="UI/UIForms/UIMainMenuForm" />
+      <Asset Guid="c4b882598a6ab5e469bc62ab20b75ede" ResourceName="Res/textures/2x/collabs/collab_CYP_1" />
+      <Asset Guid="c5210749844b9974a89110f982c7554d" ResourceName="Res/textures/1x/collabs/collab_DBD_1" />
+      <Asset Guid="c5e4e4b9474d78941b6888fef726520c" ResourceName="Res/fonts/NotoSansSC-Bold" />
+      <Asset Guid="c646d0ffe77e90c4dab6919e8ed420da" ResourceName="Res/textures/2x/collabs/collab_AU_2" />
+      <Asset Guid="c7bcaf0755ecee945bef44ced46b0dcd" ResourceName="Res/sounds/cardSlide1" />
+      <Asset Guid="c900fae798ae3cc4d88fe8367c34efb7" ResourceName="Res/sounds/voice11" />
+      <Asset Guid="c9053daa63b1b1c4682970659e4d018f" ResourceName="Res/sounds/highlight2" />
+      <Asset Guid="c911c39fc16bb954e8414fb4db5827c5" ResourceName="Res/sounds/multhit1" />
+      <Asset Guid="c9bcbb6a69f41374a9d3167c3ec9db97" ResourceName="Res/textures/2x/collabs/collab_XR_1" />
+      <Asset Guid="cb79a70445e180c429bc6fb1d2d809f7" ResourceName="Res/textures/2x/collabs/collab_EG_1" />
+      <Asset Guid="cbb7871a380ba404a8dbae2e3830902f" ResourceName="Res/sounds/whoosh2" />
+      <Asset Guid="cd7c8141f1404fa40a8d6e99efb2ebcc" ResourceName="Res/sounds/coin6" />
+      <Asset Guid="cd97ebccaedd5434dae4106752cdbac2" ResourceName="Res/sounds/tarot2" />
+      <Asset Guid="cfa71afd74f746a4abdafa38cd429f71" ResourceName="Res/textures/2x/collabs/collab_STS_2" />
+      <Asset Guid="d0214678916ac304db96d7848358c941" ResourceName="Res/textures/2x/chips" />
+      <Asset Guid="d051a2543f26018498359e716a56bc71" ResourceName="Res/textures/2x/collabs/collab_AC_1" />
+      <Asset Guid="d143fc409e9e83a4889067d91e6f091e" ResourceName="Res/textures/2x/tags" />
+      <Asset Guid="d1470a8c19b7a664ca36caed62fd2ad9" ResourceName="Res/textures/1x/collabs/collab_DTD_2" />
+      <Asset Guid="d26831d54a16d35498ca997c68182190" ResourceName="DataTables/Item" />
+      <Asset Guid="d38fb6ac7ee9d0c46b1999035e258146" ResourceName="Res/textures/1x/stickers" />
+      <Asset Guid="d3a594983e6825949ae51147790681f6" ResourceName="Res/textures/1x/collabs/collab_R_2" />
+      <Asset Guid="d3c80ca57d0863f438342e2d806448c5" ResourceName="Res/textures/2x/collabs/collab_DTD_1" />
+      <Asset Guid="d522be8dd404ab248ac362523d1a5c68" ResourceName="Res/textures/1x/icons" />
+      <Asset Guid="d61cb7333d778a340834438f983c64ef" ResourceName="Res/textures/2x/collabs/collab_BUG_2" />
+      <Asset Guid="d621adf0fdcc0e54c80eb4368d9dcf45" ResourceName="Res/textures/2x/collabs/collab_TW_2" />
+      <Asset Guid="d63a3dcea865a174f91921777276b27c" ResourceName="Res/textures/2x/collabs/collab_PC_2" />
+      <Asset Guid="d66c1e03f0f44b74d967bae18a05ade7" ResourceName="Res/textures/2x/collabs/collab_WF_2" />
+      <Asset Guid="d845e435962fabf40b9a36608fccbbe0" ResourceName="DataTables/UIGroup" />
+      <Asset Guid="d9fed4d167cd97b4f87591243e009dd0" ResourceName="Res/textures/1x/localthunk-logo" />
+      <Asset Guid="dc4c5a910ea4326468a592cd10169b5d" ResourceName="Res/textures/1x/collabs/collab_AU_1" />
+      <Asset Guid="dc99278f546c2ab4e914458e42177084" ResourceName="Res/sounds/crumpleLong1" />
+      <Asset Guid="dd3ed108892155a46ac742df7b28204d" ResourceName="Res/sounds/voice4" />
+      <Asset Guid="dfd231179c1645e42a905705b76b11a7" ResourceName="Res/textures/2x/ui_assets_opt2" />
+      <Asset Guid="e086ee00f7ca8c647891e80519f35b68" ResourceName="Res/sounds/foil1" />
+      <Asset Guid="e13d8062313e6e24394c05ad35f9ebb6" ResourceName="Res/sounds/explosion1" />
+      <Asset Guid="e18294d5e0159df46bb81ef860060370" ResourceName="README" />
+      <Asset Guid="e358772196a48fa43acb159231a1d9c0" ResourceName="Res/textures/2x/collabs/collab_TW_1" />
+      <Asset Guid="e3b95edf1cba4504d9c29af6f4b4731e" ResourceName="Res/sounds/ambientFire1" />
+      <Asset Guid="e720a5698831c38429f75ae268dcf751" ResourceName="Configs/EnumTemplate" />
+      <Asset Guid="e762f4245e9caf74e8c6161a787c5be6" ResourceName="Res/sounds/explosion_release1" />
+      <Asset Guid="e78f8f959e1e44241adc640fb6fbb708" ResourceName="Res/textures/2x/collabs/collab_DTD_2" />
+      <Asset Guid="e7ae9e0021ac43142beb393461bac977" ResourceName="Res/sounds/ambientFire3" />
+      <Asset Guid="e80a6763204f4e243a79945122c9c4df" ResourceName="Res/sounds/coin2" />
+      <Asset Guid="e89efcb2cf391744596eb8339ed63772" ResourceName="Res/textures/2x/boosters" />
+      <Asset Guid="e959b4ae6fe41de4a8158b368385f8e5" ResourceName="Res/textures/1x/collabs/collab_SV_1" />
+      <Asset Guid="ea9c03a0d362bc142ae276d120fb58c2" ResourceName="Res/sounds/glass4" />
+      <Asset Guid="eac0aca919670474bb9b39f524865798" ResourceName="Res/sounds/magic_crumple" />
+      <Asset Guid="ec2319e0d3eaa644db2cd060c6996301" ResourceName="Res/textures/2x/collabs/collab_R_2" />
+      <Asset Guid="ed4b991c8abf67d4389bdca905741979" ResourceName="Res/sounds/coin3" />
+      <Asset Guid="eeb821387d717d5428367c7513701974" ResourceName="excel/AssetsPath" />
+      <Asset Guid="eef84c8d2633fcd4292130be7a7b4ce7" ResourceName="Res/sounds/voice9" />
+      <Asset Guid="ef78e11206cd88f44a09a66097a1f722" ResourceName="Res/sounds/glass6" />
+      <Asset Guid="f09d5447a83b5c440991551feb5cdc44" ResourceName="DataTables/Item" />
+      <Asset Guid="f1470c9ae2a11dd489dd783c6ecd9c34" ResourceName="Res/textures/1x/collabs/collab_BUG_1" />
+      <Asset Guid="f3a289a08c44f5745998f837b703a31a" ResourceName="Res/textures/1x/collabs/collab_STS_2" />
+      <Asset Guid="f3c4ccc9e924c2f4db9b52068b038a2b" ResourceName="Res/textures/2x/collabs/collab_DBD_2" />
+      <Asset Guid="f40887f203a49e042891612687008a5e" ResourceName="Res/textures/2x/collabs/collab_TBoI_1" />
+      <Asset Guid="f57199f4a3f025f42a697f3b7f801d18" ResourceName="Res/textures/2x/collabs/collab_SK_2" />
+      <Asset Guid="f66ee23e3de1e7e43bb3887d2630aa54" ResourceName="Res/textures/1x/balatro" />
+      <Asset Guid="f7d15b17aafb5a34cb12d73c20999a17" ResourceName="Res/textures/1x/ui_assets" />
+      <Asset Guid="f9045c8adcaa72b4095f2cf982b2e8f6" ResourceName="Res/textures/1x/Tarots" />
+      <Asset Guid="fb3e6173cd3ae464fa599aa67d87c345" ResourceName="Res/textures/2x/collabs/collab_DS_1" />
+      <Asset Guid="fbd88511c592eb1489e23b203a1f1e47" ResourceName="Res/sounds/card3" />
+      <Asset Guid="fee16a5472a52ad43a5f2088f70306eb" ResourceName="Res/sounds/chips2" />
+      <Asset Guid="feec00838295cc04f8661c998f2d7a6b" ResourceName="Configs/DataTableCodeTemplate" />
+      <Asset Guid="ff5d0e425d4b4a84095e37c742ceaf17" ResourceName="Res/textures/1x/collabs/collab_XR_2" />
+    </Assets>
+  </ResourceCollection>
+</UnityGameFramework>
