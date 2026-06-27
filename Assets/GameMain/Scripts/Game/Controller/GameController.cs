@@ -334,11 +334,16 @@ namespace Yuu
             if (_selectionModel.IsSelected(cardData))
             {
                 _selectionModel.Deselect(cardData);
+                _cardForm?.OnSelectionChanged();  // 对应 Balatro remove_from_highlighted → parse_highlighted
                 return CardClickResult.Deselected;
             }
 
             // 未选中 → 尝试选中
             bool success = _selectionModel.TrySelect(cardData);
+            if (success)
+            {
+                _cardForm?.OnSelectionChanged();  // 对应 Balatro add_to_highlighted → parse_highlighted
+            }
             return success ? CardClickResult.Selected : CardClickResult.Rejected;
         }
 
@@ -348,6 +353,7 @@ namespace Yuu
         public void ClearSelection()
         {
             _selectionModel.ClearAll();
+            _cardForm?.OnSelectionChanged();  // 对应 Balatro unhighlight_all → parse_highlighted
         }
 
         /// <summary>

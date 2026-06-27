@@ -313,6 +313,7 @@ GameObject:
   - component: {fileID: 2269898111638782811}
   - component: {fileID: 6987581966459395206}
   - component: {fileID: 5207032274221010827}
+  - component: {fileID: 551944062301062012}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -438,6 +439,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &551944062301062012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1771212005814645150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 087a56c75d247be4f8f7cf82ceb68e4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Key: 
 --- !u!1 &2497443225224887394
 GameObject:
   m_ObjectHideFlags: 0
@@ -668,12 +682,11 @@ MonoBehaviour:
   _pointsSortButton: {fileID: 3666693514277336600}
   _playHandButton: {fileID: 1169370847233271973}
   _playAreaRoot: {fileID: 6917959841785083599}
-  _playOverlapFraction: 0.25
   _playAreaYOffset: 120
   _playStaggerDelay: 0.12
   _handAreaWidth: 800
-  _handArcHeight: -100
-  _handFanAngle: -30
+  _handArcHeight: 0
+  _handFanAngle: 0
   _handHighlightY: 40
   _handAlignSpeed: 15
   _handAreaSlideY: 0
@@ -816,6 +829,7 @@ GameObject:
   - component: {fileID: 6741447497665939735}
   - component: {fileID: 1369741169490564995}
   - component: {fileID: 1143990528630193673}
+  - component: {fileID: -6672780565490709817}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -941,6 +955,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &-6672780565490709817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6406427678814572522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 087a56c75d247be4f8f7cf82ceb68e4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Key: 
 --- !u!1 &6878339717106141398
 GameObject:
   m_ObjectHideFlags: 0
@@ -952,6 +979,7 @@ GameObject:
   - component: {fileID: 774266511870577317}
   - component: {fileID: 2893393365582060549}
   - component: {fileID: 6468896946327259392}
+  - component: {fileID: 8392892439670036898}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1077,6 +1105,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8392892439670036898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6878339717106141398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 087a56c75d247be4f8f7cf82ceb68e4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Key: 
 --- !u!1 &7409757921299934657
 GameObject:
   m_ObjectHideFlags: 0
@@ -1088,6 +1129,7 @@ GameObject:
   - component: {fileID: 7842275684118479318}
   - component: {fileID: 9078062476872793570}
   - component: {fileID: 6358025153579506320}
+  - component: {fileID: -5010341220472002212}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1213,6 +1255,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &-5010341220472002212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7409757921299934657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 087a56c75d247be4f8f7cf82ceb68e4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Key: 
 --- !u!1 &7787774715897234352
 GameObject:
   m_ObjectHideFlags: 0

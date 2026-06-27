@@ -1,0 +1,80 @@
+-- util/context_helper.lua
+-- Context 判断辅助函数和常量
+
+local M = {}
+
+-- ═══════════════════════════════════════════════════════════════
+-- 触发阶段常量（与 C# JokerTriggerType 枚举值严格对应）
+-- ═══════════════════════════════════════════════════════════════
+M.TRIGGER = {
+    Before           = 0,   -- 出牌前
+    JokerMain        = 1,   -- 主计分阶段
+    After            = 2,   -- 出牌后
+    Individual       = 3,   -- 逐张计分
+    Repetition       = 4,   -- 重复计分
+    OtherJoker       = 5,   -- 其他小丑触发时
+    EndOfRound       = 6,   -- 回合结束
+    SettingBlind     = 7,   -- 选择盲注
+    FirstHandDrawn   = 8,   -- 摸第一手牌
+    SellingSelf      = 9,   -- 出售自身
+    SellingCard      = 10,  -- 出售其他卡牌
+    RerollShop       = 11,  -- 商店重骰
+    EndingShop       = 12,  -- 离开商店
+    OpenBooster      = 13,  -- 打开补充包
+    SkippingBooster  = 14,  -- 跳过补充包
+    DestroyingCard   = 15,  -- 卡牌被摧毁
+    CardsDestroyed   = 16,  -- 卡牌被摧毁后
+    PlayingCardAdded = 17,  -- 添加打牌
+    SkipBlind        = 18,  -- 跳过盲注
+    UsingConsumable  = 19,  -- 使用消耗牌
+    Discard          = 20,  -- 弃牌
+    PreDiscard       = 21,  -- 弃牌前
+    DebuffedHand     = 22,  -- 被减益手牌
+}
+
+-- ═══════════════════════════════════════════════════════════════
+-- 颜色常量
+-- ═══════════════════════════════════════════════════════════════
+M.COLOUR = {
+    RED   = "RED",
+    MULT  = "MULT",
+    CHIPS = "CHIPS",
+    MONEY = "MONEY",
+}
+
+-- ═══════════════════════════════════════════════════════════════
+-- 卡牌区域常量（与 C# CardAreaType 对应）
+-- ═══════════════════════════════════════════════════════════════
+M.CARD_AREA = {
+    Play = 0,
+    Hand = 1,
+}
+
+-- ═══════════════════════════════════════════════════════════════
+-- 效果返回值工厂函数
+-- ═══════════════════════════════════════════════════════════════
+
+--- 快速创建一个效果返回值 table
+--- @param opts table {message, mult_mod, Xmult_mod, chip_mod, dollars, colour}
+--- @return table 标准效果返回值
+function M.effect(opts)
+    opts = opts or {}
+    return {
+        message   = opts.message or "",
+        mult_mod  = opts.mult_mod or 0,
+        Xmult_mod = opts.Xmult_mod or 1,
+        chip_mod  = opts.chip_mod or 0,
+        dollars   = opts.dollars or 0,
+        colour    = opts.colour or M.COLOUR.MULT,
+    }
+end
+
+--- 判断是否为 Blueprint 复制上下文
+function M.is_blueprint_context(context)
+    if context == nil then return false end
+    -- 通过 pcall 安全访问 C# 属性
+    local ok, depth = pcall(function() return context.BlueprintDepth end)
+    return ok and depth and depth > 0
+end
+
+return M

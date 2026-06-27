@@ -1,0 +1,46 @@
+-- jokers/j_banner.lua
+-- Banner: 每剩余弃牌次数给予 +30 筹码
+-- 触发阶段: joker_main
+-- 配置: extra.chips_per_discard = 30
+
+local Registry = require("joker_registry")
+local Helper = require("util.context_helper")
+
+local TRIGGER = Helper.TRIGGER
+local COLOUR = Helper.COLOUR
+
+local function handler(context, ability)
+    local trigger = context.TriggerType
+
+    -- 主计分阶段：根据剩余弃牌次数给予筹码
+    if trigger == TRIGGER.JokerMain then
+        local remaining = 0
+        -- pcall 安全访问 C# 属性
+        local ok = pcall(function()
+            remaining = CS.Yuu.LuaJokerBridge.GetRemainingDiscards()
+        end)
+        if not ok then
+            -- Bridge 未就绪时使用 fallback
+            remaining = ability.extra and ability.extra._cached_discards or 0
+        end
+
+        local chipsPerDiscard = 30
+        if ability.extra and ability.extra.chips_per_discard then
+            chipsPerDiscard = ability.extra.chips_per_discard
+        end
+
+        local chips = remaining * chipsPerDiscard
+        if chips > 0 then
+            return Helper.effect({
+                message = "+" .. chips .. " Chips",
+                chip_mod = chips,
+                colour = COLOUR.CHIPS,
+            })
+        end
+    end
+
+    return nil
+end
+
+Registry.register("j_banner", handler)
+return handler

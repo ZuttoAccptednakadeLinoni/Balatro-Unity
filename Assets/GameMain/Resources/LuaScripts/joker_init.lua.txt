@@ -1,0 +1,24 @@
+-- joker_init.lua
+-- Lua 侧初始化入口，由 XLuaManager.DoString("require('joker_init')") 调用
+-- 负责加载所有子模块并暴露给 C# 侧
+
+-- 加载注册表
+local JokerRegistry = require("joker_registry")
+
+-- 加载辅助工具
+local Helper = require("util.context_helper")
+
+-- 加载所有小丑效果（每个文件自注册到 JokerRegistry）
+require("jokers.j_banner")
+require("jokers.j_ramen")
+require("jokers.j_green_joker")
+
+-- 初始化日志
+CS.UnityEngine.Debug.Log("[joker_init] Lua joker system initialized. Registered jokers: " .. table.concat(JokerRegistry.list(), ", "))
+
+-- 返回给 C# 侧的入口 table（由 require 调用者接收）
+return {
+    registry = JokerRegistry,
+    helper = Helper,
+    version = "1.0.0",
+}

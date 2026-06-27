@@ -110,6 +110,7 @@ namespace Yuu
         /// <summary>弃牌区 Item 映射，卡牌叠放形成弃牌堆。</summary>
         private Dictionary<CardData, Item> _discardAreaCardMap = new Dictionary<CardData, Item>();
 
+
         protected override void OnInit(object userData)
         {
             base.OnInit(userData);
@@ -326,7 +327,7 @@ namespace Yuu
                 // 对应 Balatro: arc = |0.5*(-#cards/2 + k-0.5)/#cards| - 0.2
                 float arcNorm = Mathf.Abs(0.5f * (-handCount / 2f + i - 0.5f) / Mathf.Max(handCount, 1)) - 0.2f;
                 float arcOffset = _handArcHeight * arcNorm; // 负值 = 两端低于中间
-                // 高亮卡牌上移
+                // 选中卡牌上移
                 float highlightOffset = (card != null && card.IsSelected) ? -_handHighlightY : 0f;
                 float totalYOffset = arcOffset + highlightOffset + _handAreaTargetY;
 
@@ -721,6 +722,66 @@ namespace Yuu
             LogHandResult(playedCards, result);
         }
 
+        // ============================================================
+        //  实时牌型预览 —— 对应 Balatro CardArea:parse_highlighted()
+        //  每次选牌/取消时立即评估当前选中卡牌并更新 HUD
+        // ============================================================
+
+        /// <summary>
+        /// 选牌变更回调。由 GameController 在 OnCardClicked 后调用。
+        /// 实时解析当前选中卡牌的牌型并更新 HUD 预览。
+        /// 对应 Balatro add_to_highlighted / remove_from_highlighted → parse_highlighted。
+        /// </summary>
+        public void OnSelectionChanged()
+        {
+            if (_gameController == null)
+                return;
+
+            var selected = _gameController.GetSelectedCards();
+            if (selected == null || selected.Count == 0)
+            {
+                ClearHUDHandPreview();
+                return;
+            }
+
+            var cards = new List<CardData>(selected);
+            PokerHandResult result = PokerHandEvaluator.Evaluate(cards);
+
+            if (result == null || result.HandType == EnumPokerHand.None)
+            {
+                ClearHUDHandPreview();
+            }
+            else
+            {
+                var uiForm = GameEntry.UI.GetUIForm(EnumUIForm.UIGameInfoForm);
+                if (uiForm is UIGameInfoForm infoForm)
+                {
+                    infoForm.UpdateHandResult(result);
+                }
+            }
+
+            // 注：不调用 AlignHandCards()，选牌升降由 Card.ApplyLift() 单独处理
+        }
+
+        /// <summary>
+        /// 清空 HUD 牌型预览（选中卡牌未构成有效牌型时调用）。
+        /// 对应 Balatro update_hand_text({...}, {mult=0, chips=0, level='', handname=''})。
+        /// </summary>
+        private void ClearHUDHandPreview()
+        {
+            var uiForm = GameEntry.UI.GetUIForm(EnumUIForm.UIGameInfoForm);
+            if (uiForm is UIGameInfoForm infoForm)
+            {
+                infoForm.UpdateHandResult(new PokerHandResult
+                {
+                    HandType = EnumPokerHand.None,
+                    Add = 0,
+                    Mul = 0,
+                    ScoringHand = null
+                });
+            }
+        }
+
         /// <summary>
         /// 输出出牌日志：点数、牌型、加码、倍率。
         /// </summary>
@@ -888,13 +949,34 @@ namespace Yuu
                 if (i < cardsToPlay.Count - 1)
                     yield return new WaitForSeconds(_playStaggerDelay);
             }
+            yield return StartCoroutine(WaitForPlayCardsSettled(cardsToPlay));
+
+            // ---- 步骤 5.5: 牌型判定 → 获取计分牌列表 ----
+            // 对应 Balatro: evaluate_poker_hand → G.FUNCS.get_poker_hand_info
+            PokerHandResult handResult = PokerHandEvaluator.Evaluate(cardsToPlay);
+            List<CardData> scoringCards = handResult?.ScoringHand;
+            if (scoringCards == null || scoringCards.Count == 0)
+                scoringCards = cardsToPlay;  // fallback：全出牌
+
+            // ---- 步骤 5.6: 计分高亮上移（仅计分牌，逐张错开） ----
+            // 对应 Balatro: highlight_card(scoring_hand[i], (i-0.999)/5, 'up')
+            yield return StartCoroutine(HighlightScoringCards(scoringCards, true));
 
             // ---- 步骤 6: 等待所有出牌动画完成 ----
             yield return StartCoroutine(WaitForPlayCardsSettled(cardsToPlay));
 
-            // ---- 步骤 6.2: 牌型判定 + 更新 UI ----
-            // 对应 Balatro: evaluate_poker_hand → G.FUNCS.get_poker_hand_info
-            EvaluateAndDisplayHandResult(cardsToPlay);
+            // ---- 步骤 6.2: 更新 HUD 显示牌型 ----
+            var uiForm = GameEntry.UI.GetUIForm(EnumUIForm.UIGameInfoForm);
+            if (uiForm is UIGameInfoForm infoForm)
+            {
+                infoForm.UpdateHandResult(handResult);
+            }
+            // 日志输出
+            LogHandResult(cardsToPlay, handResult);
+
+            // ---- 步骤 6.3: 计分高亮下移（仅计分牌，逐张错开） ----
+            // 对应 Balatro: highlight_card(scoring_hand[i], ..., 'down')
+            yield return StartCoroutine(HighlightScoringCards(scoringCards, false));
 
             // ---- 步骤 6.5: 延迟后弃置出牌区卡牌至弃牌堆 ----
             // 对应 Balatro: evaluate_play 完成后 delay=0.1 → draw_from_play_to_discard
@@ -1019,6 +1101,49 @@ namespace Yuu
                     continue;
                 UIMoveable mv = item.Logic as UIMoveable;
                 mv?.SnapSmoothTransform();
+            }
+        }
+
+        // ============================================================
+        //  计分高亮动画 —— 对应 Balatro highlight_card(card, percent, 'up'/'down')
+        //  逐张错开 0.1s，对应 Balatro common_events.lua highlight_card
+        // ============================================================
+
+        /// <summary>
+        /// 逐张执行计分卡牌的高亮上移/下移动画。
+        /// 对应 Balatro highlight_card：event delay=0.1，逐张切换 card.highlighted。
+        /// 上移时卡牌 Y 轴升高 _handHighlightY，下移时复位。
+        /// </summary>
+        /// <param name="cards">计分卡牌列表（已按出牌区 x 坐标排序）。</param>
+        /// <param name="up">true=高亮上移('up'), false=取消高亮('down')。</param>
+        private IEnumerator HighlightScoringCards(List<CardData> cards, bool up)
+        {
+            int count = cards.Count;
+            if (count == 0)
+                yield break;
+
+            for (int i = 0; i < count; i++)
+            {
+                CardData cd = cards[i];
+                if (!_playAreaCardMap.TryGetValue(cd, out Item item) || item == null)
+                    continue;
+
+                UIMoveable mv = item.Logic as UIMoveable;
+                if (mv == null)
+                    continue;
+
+                RectTransform rt = item.transform as RectTransform;
+                Vector2 currentPos = rt != null ? rt.anchoredPosition : Vector2.zero;
+
+                // 高亮上移：Y + _handHighlightY；下移：Y - _handHighlightY
+                float yOffset = up ? _handHighlightY : -_handHighlightY;
+                Vector2 targetPos = new Vector2(currentPos.x, currentPos.y + yOffset);
+
+                // 启动插值动画：VT=当前位置 → T=目标位置，自动缓动
+                mv.AnimateSmoothTo(targetPos, currentPos);
+
+                // 对应 Balatro: Event{delay=0.1}，逐张错开
+                yield return new WaitForSeconds(0.1f);
             }
         }
 

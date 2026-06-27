@@ -1,0 +1,199 @@
+介绍以下小丑模块有哪些功能
+Deep
+View as codemap
+
+Thought Process
+Card:calculate_joker(context) 是小丑模块的核心函数，位于 Balatro/card.lua 第2291行。所有小丑牌效果通过不同的 context 触发条件分支执行。 card.lua:2291-2303
+
+触发上下文（Context）分类
+1. 复制类（无特定context）
+小丑牌	功能
+Blueprint	复制右侧小丑牌的能力
+Brainstorm	复制最左侧小丑牌的能力
+2. context.open_booster — 打开补充包时
+小丑牌	功能
+Hallucination	有概率生成一张塔罗牌
+3. context.selling_self — 出售自身时
+小丑牌	功能
+Luchador	禁用当前Boss盲注效果
+Diet Cola	生成一个双倍标签（tag_double）
+Invisible Joker	满足回合条件后，复制一张随机小丑牌
+4. context.selling_card — 出售其他卡牌时
+小丑牌	功能
+Campfire	每次出售卡牌时提升X倍率
+5. context.reroll_shop — 商店重骰时
+小丑牌	功能
+Flash Card	每次重骰增加倍率
+6. context.ending_shop — 离开商店时
+小丑牌	功能
+Perkeo	复制一张随机消耗牌并设为负片版本
+7. context.skip_blind — 跳过盲注时
+小丑牌	功能
+Throwback	每跳过一次盲注增加X倍率
+8. context.skipping_booster — 跳过补充包时
+小丑牌	功能
+Red Card	每次跳过补充包增加倍率
+9. context.playing_card_added — 添加打牌时
+小丑牌	功能
+Hologram	每添加一张牌到牌组增加X倍率
+10. context.first_hand_drawn — 摸第一手牌时
+小丑牌	功能
+Certificate	摸一张带随机印记的随机牌
+DNA	第一手牌时激活（复制单张牌）
+Trading Card	第一次弃牌时激活
+11. context.setting_blind — 选择盲注时
+小丑牌	功能
+Chicot	禁用Boss盲注效果
+Madness	增加X倍率，并摧毁一张随机小丑牌
+Burglar	取消所有弃牌次数，增加出牌次数
+Riff-raff	生成2张随机小丑牌
+Cartomancer	生成1张塔罗牌
+Ceremonial Dagger	摧毁右侧小丑牌，获得其售价×2的倍率
+Marble Joker	向牌组添加一张石头牌
+12. context.destroying_card / context.cards_destroyed — 卡牌被摧毁时
+小丑牌	功能
+Sixth Sense	第一手打出单张6时，摧毁它并生成一张灵异牌
+Caino	玻璃牌摧毁人头牌时增加X倍率
+Glass Joker	玻璃牌破碎时增加X倍率
+13. context.using_consumeable — 使用消耗牌时
+小丑牌	功能
+Glass Joker	使用吊人塔罗时，玻璃牌增加X倍率
+Fortune Teller	使用塔罗牌时显示倍率（基于历史使用次数）
+Constellation	使用星球牌时增加X倍率
+14. context.debuffed_hand / context.pre_discard / context.discard — 弃牌相关
+小丑牌	功能
+Matador	触发Boss盲注效果时获得金钱
+Burnt Joker	第一次弃牌时升级当前手牌类型
+Ramen	每次弃牌降低X倍率，归零时自毁
+Yorick	每N次弃牌增加X倍率
+Trading Card	第一次弃牌且只弃1张时获得金钱
+Castle	弃掉特定花色牌时增加筹码
+Mail-In Rebate	弃掉特定点数牌时获得金钱
+Hit the Road	弃掉J时增加X倍率，回合结束重置
+Green Joker	弃牌时减少倍率
+Faceless Joker	弃掉3张以上人头牌时获得金钱
+15. context.end_of_round — 回合结束时
+小丑牌	功能
+Campfire	Boss盲注结束时重置X倍率
+Rocket	Boss盲注结束时增加奖励金钱
+Turtle Bean	每回合减少手牌上限，归零时自毁
+Invisible Joker	累计回合数，达标后出售时可复制小丑
+Popcorn	每回合减少倍率，归零时自毁
+To Do List	回合结束时随机更换目标手牌类型
+Egg	每回合增加自身售价
+Gift Card	每回合增加所有小丑牌和消耗牌的售价
+Hit the Road	回合结束重置X倍率
+Gros Michel / Cavendish	每回合有概率自毁（灭绝）
+Mr. Bones	达到盲注25%时阻止游戏结束并自毁
+Mime	重复手牌中的牌效果
+16. context.individual — 计分时逐张触发
+打出区（G.play）：
+
+小丑牌	功能
+Hiker	永久增加计分牌的筹码值
+Lucky Cat	幸运触发时增加X倍率
+Wee Joker	打出2时增加筹码
+Photograph	第一张人头牌获得X倍率
+8 Ball	打出8时有概率生成塔罗牌
+The Idol	特定花色+点数的牌获得X倍率
+Scary Face	人头牌给予筹码
+Smiley Face	人头牌给予倍率
+Golden Ticket	黄金牌给予金钱
+Scholar	A给予筹码+倍率
+Walkie Talkie	10和4给予筹码+倍率
+Business Card	人头牌有概率给予$2
+Fibonacci	斐波那契数字牌（A/2/3/5/8）给予倍率
+Even Steven	偶数牌给予倍率
+Odd Todd	奇数牌给予筹码
+Rough Gem	方块牌给予金钱
+Onyx Agate	梅花牌给予倍率
+Arrowhead	黑桃牌给予筹码
+Bloodstone	红心牌有概率给予X倍率
+Ancient Joker	特定花色牌给予X倍率（每回合变化）
+Triboulet	Q和K给予X倍率
+手牌区（G.hand）：
+
+小丑牌	功能
+Shoot the Moon	手中的Q每张给予+13倍率
+Baron	手中的K每张给予X倍率
+Reserved Parking	手中人头牌有概率给予金钱
+Raised Fist	手中最小的牌给予其点数×2的倍率
+17. context.repetition — 重复计分
+小丑牌	功能
+Sock and Buskin	人头牌重复计分
+Hanging Chad	第一张计分牌重复计分
+Dusk	最后一手牌时所有牌重复计分
+Seltzer	所有牌重复计分（有限次数后自毁）
+Hack	2/3/4/5重复计分
+Mime	手牌中有效果的牌重复触发
+18. context.other_joker — 其他小丑牌触发时
+小丑牌	功能
+Baseball Card	每张稀有小丑牌触发时给予X倍率
+19. 主计分阶段（context.before / context.after / 默认）
+context.before（出牌前）：
+
+小丑牌	功能
+Spare Trousers	打出两对/葫芦时增加倍率
+Space Joker	有概率升级当前手牌类型
+Square Joker	打出4张牌时增加筹码
+Runner	打出顺子时增加筹码
+Midas Mask	将计分手中的人头牌变为黄金牌
+Vampire	移除计分手中增强牌的增强效果，增加X倍率
+To Do List	打出目标手牌类型时获得金钱
+DNA	第一手只有1张牌时复制该牌
+Ride the Bus	无人头牌时累积倍率，有人头牌时重置
+Obelisk	打出最多次的手牌类型时增加X倍率，否则重置
+Green Joker	每次出牌增加倍率
+context.after（出牌后）：
+
+小丑牌	功能
+Ice Cream	每次出牌减少筹码，归零时自毁
+Seltzer	每次出牌减少剩余次数，归零时自毁
+主计分（默认分支）：
+
+小丑牌	功能
+Loyalty Card	每N手牌激活一次X倍率
+Half Joker	出牌数≤3时给予倍率
+Abstract Joker	每张小丑牌给予+3倍率
+Acrobat	最后一手牌时给予X倍率
+Mystic Summit	弃牌次数为0时给予倍率
+Misprint	给予随机范围内的倍率
+Banner	每剩余弃牌次数给予筹码
+Stuntman	给予大量固定筹码（手牌上限-2）
+Matador	Boss盲注触发时给予金钱
+Supernova	给予当前手牌类型历史出牌次数的倍率
+Ceremonial Dagger	给予累积的倍率
+Vagabond	金钱≤$4时生成塔罗牌
+Superposition	打出含A的顺子时生成塔罗牌
+Seance	打出特定手牌类型时生成灵异牌
+Flower Pot	计分手包含四种花色时给予X倍率
+Seeing Double	计分手包含梅花+任意其他花色时给予X倍率
+Wee Joker	给予累积的筹码
+Castle	给予累积的筹码
+Blue Joker	牌库每张牌给予筹码
+Erosion	每少一张牌给予倍率
+Square Joker	给予累积的筹码
+Runner	给予累积的筹码
+Ice Cream	给予当前筹码
+Stone Joker	每张石头牌给予筹码
+Steel Joker	每张钢铁牌给予X倍率
+Bull	每$1给予筹码
+Driver's License	拥有16张以上增强牌时给予X倍率
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

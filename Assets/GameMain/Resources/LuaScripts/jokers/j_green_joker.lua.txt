@@ -1,0 +1,48 @@
+-- jokers/j_green_joker.lua
+-- Green Joker: 每次出牌 +1 倍率，每次弃牌 -1 倍率（不低于 0）
+-- 触发阶段: before, discard, joker_main
+-- 配置: extra.hand_add = 1, extra.discard_sub = 1
+
+local Registry = require("joker_registry")
+local Helper = require("util.context_helper")
+
+local TRIGGER = Helper.TRIGGER
+local COLOUR = Helper.COLOUR
+
+local function handler(context, ability)
+    local trigger = context.TriggerType
+
+    -- before: 每次出牌增加倍率
+    if trigger == TRIGGER.Before then
+        ability.mult = (ability.mult or 0) + (ability.extra and ability.extra.hand_add or 1)
+        return Helper.effect({
+            message = "+" .. (ability.extra and ability.extra.hand_add or 1) .. " Mult",
+            colour = COLOUR.MULT,
+        })
+    end
+
+    -- discard: 弃牌减少倍率
+    if trigger == TRIGGER.Discard then
+        ability.mult = math.max(0, (ability.mult or 0) - (ability.extra and ability.extra.discard_sub or 1))
+        return Helper.effect({
+            message = "-" .. (ability.extra and ability.extra.discard_sub or 1) .. " Mult",
+            colour = COLOUR.RED,
+        })
+    end
+
+    -- joker_main: 返回当前累积倍率
+    if trigger == TRIGGER.JokerMain then
+        if (ability.mult or 0) > 0 then
+            return Helper.effect({
+                message = "+" .. ability.mult .. " Mult",
+                mult_mod = ability.mult,
+                colour = COLOUR.MULT,
+            })
+        end
+    end
+
+    return nil
+end
+
+Registry.register("j_green_joker", handler)
+return handler

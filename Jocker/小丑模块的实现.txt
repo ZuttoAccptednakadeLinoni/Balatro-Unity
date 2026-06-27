@@ -1,0 +1,97 @@
+我来更深入地介绍小丑模块的实现细节，包括数据结构、事件系统和计分流程。
+
+小丑模块实现架构
+1. 数据结构：ability 字段
+每张小丑牌的能力数据在 Card:set_ability() 中初始化，从 G.P_CENTERS 的配置表复制而来：
+
+self.ability = {  
+    name = center.name,       -- 小丑名称，用于 if 分支匹配  
+    set  = center.set,        -- "Joker"  
+    mult = center.config.mult or 0,  
+    x_mult = center.config.Xmult or 1,  
+    extra = copy_table(center.config.extra) or nil,  -- 小丑专属参数  
+    ...  
+}
+card.lua:277-297
+
+G.P_CENTERS 中每个小丑的静态配置定义了初始参数，例如：
+
+j_banner = {rarity=1, cost=5, name="Banner", config={extra=30}, ...}  
+j_ramen  = {rarity=2, cost=6, name="Ramen",  config={Xmult=2, extra=0.01}, ...}
+game.lua:390-395
+
+2. 核心函数：Card:calculate_joker(context)
+位于 Balatro/card.lua 第2291行，是所有小丑效果的统一入口。函数接收一个 context 表，通过检查其字段决定当前触发时机，再通过 self.ability.name 的 if/elseif 链匹配具体小丑。
+
+防御性检查（最先执行）：
+
+if self.debuff then return nil end  -- 被削弱的小丑不触发
+card.lua:2291-2292
+
+返回值结构（统一格式）：
+
+return {  
+    message   = "...",      -- 显示的浮动文字  
+    mult_mod  = N,          -- 加法倍率  
+    Xmult_mod = N,          -- 乘法倍率  
+    chip_mod  = N,          -- 筹码  
+    dollars   = N,          -- 金钱  
+    colour    = G.C.RED,    -- 文字颜色  
+    card      = self,       -- 触发动画的卡牌  
+}
+3. 调用流程：G.FUNCS.evaluate_play
+计分流程在 Balatro/functions/state_events.lua 的 evaluate_play 函数中，按固定顺序多次调用 calculate_joker：
+
+evaluate_play()  
+  ├─ [before] 遍历 G.jokers.cards → eval_card(..., {before=true})  
+  ├─ [per scoring card] 遍历 scoring_hand  
+  │    ├─ 重复次数检查 → calculate_joker({repetition=true, ...})  
+  │    └─ 逐张效果    → calculate_joker({individual=true, other_card=card, ...})  
+  ├─ [hand cards] 遍历 G.hand.cards  
+  │    └─ 手牌效果    → calculate_joker({individual=true, cardarea=G.hand, ...})  
+  ├─ [joker main] 遍历 G.jokers.cards → eval_card(..., {joker_main=true})  
+  │    └─ 小丑互相作用 → calculate_joker({other_joker=_card, ...})  
+  └─ [destroying] 遍历 scoring_hand → calculate_joker({destroying_card=card, ...})  
+state_events.lua:628-638 state_events.lua:693-699 state_events.lua:877-930
+
+回合结束时，在 state_events.lua 另一处单独调用：
+
+eval = G.jokers.cards[i]:calculate_joker({end_of_round = true, game_over = game_over})
+state_events.lua:99-107
+
+4. 中间层：eval_card()
+calculate_joker 并非总被直接调用，计分时通常通过 eval_card() 包装，后者同时收集筹码、倍率、版本加成等所有效果，再统一返回：
+
+local jokers = card:calculate_joker(context)  
+if jokers then ret.jokers = jokers end
+common_events.lua:613-616
+
+5. 事件系统：G.E_MANAGER
+有副作用的小丑（如摧毁卡牌、生成卡牌）不直接执行，而是通过 G.E_MANAGER:add_event(Event({func=...})) 将操作推入事件队列，保证动画和逻辑的时序正确：
+
+-- 示例：Ceremonial Dagger 摧毁右侧小丑  
+G.E_MANAGER:add_event(Event({func = function()  
+    self.ability.mult = self.ability.mult + sliced_card.sell_cost*2  
+    sliced_card:start_dissolve({HEX("57ecab")}, nil, 1.6)  
+    return true  
+end}))
+card.lua:2569-2577
+
+6. Blueprint/Brainstorm 的递归复制机制
+Blueprint 和 Brainstorm 通过直接递归调用 calculate_joker 实现能力复制，用 context.blueprint 计数器防止无限递归：
+
+context.blueprint = (context.blueprint and (context.blueprint + 1)) or 1  
+if context.blueprint > #G.jokers.cards + 1 then return end  -- 防止无限循环  
+local other_joker_ret = other_joker:calculate_joker(context)
+card.lua:2310-2317
+
+被复制时，目标小丑通过检查 context.blueprint 是否存在来跳过某些不可复制的副作用（如 Ceremonial Dagger 的摧毁逻辑加了 not context.blueprint 守卫）。
+
+7. UI 描述变量绑定
+小丑牌的描述文字通过 generate_UIBox_ability_table() 动态生成，将 self.ability 中的运行时数值绑定到本地化字符串的 loc_vars 参数：
+
+elseif self.ability.name == 'Green Joker' then  
+    loc_vars = {self.ability.extra.hand_add, self.ability.extra.discard_sub, self.ability.mult}
+card.lua:749
+
+这使得卡牌描述能实时反映当前累积的倍率/筹码值。

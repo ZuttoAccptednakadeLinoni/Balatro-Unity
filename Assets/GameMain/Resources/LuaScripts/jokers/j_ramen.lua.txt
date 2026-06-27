@@ -1,0 +1,59 @@
+-- jokers/j_ramen.lua
+-- Ramen: X2 倍率，每次弃牌 -0.01，归零时自毁
+-- 触发阶段: discard, joker_main
+-- 配置: extra.x_mult = 2.0, extra.x_sub = 0.01
+
+local Registry = require("joker_registry")
+local Helper = require("util.context_helper")
+
+local TRIGGER = Helper.TRIGGER
+local COLOUR = Helper.COLOUR
+
+local function handler(context, ability)
+    local trigger = context.TriggerType
+
+    -- 弃牌时降低 Xmult
+    if trigger == TRIGGER.Discard then
+        if not ability.extra then
+            ability.extra = {}
+        end
+        ability.extra.x_mult = (ability.extra.x_mult or 2.0) - (ability.extra.x_sub or 0.01)
+
+        if ability.extra.x_mult <= 1.0 then
+            -- 归零，自毁（通过 EnqueueEvent）
+            local ok = pcall(function()
+                CS.Yuu.LuaJokerBridge.DestroySelf(ability.instance_id)
+            end)
+            return Helper.effect({
+                message = "Extinct!",
+                colour = COLOUR.RED,
+            })
+        end
+
+        return Helper.effect({
+            message = "-Xmult",
+            colour = COLOUR.RED,
+        })
+    end
+
+    -- 主计分阶段：返回 Xmult
+    if trigger == TRIGGER.JokerMain or trigger == TRIGGER.After then
+        local xMult = 1.0
+        if ability.extra and ability.extra.x_mult then
+            xMult = ability.extra.x_mult
+        end
+
+        if xMult > 1.0 then
+            return Helper.effect({
+                message = "X" .. string.format("%.1f", xMult),
+                Xmult_mod = xMult,
+                colour = COLOUR.MULT,
+            })
+        end
+    end
+
+    return nil
+end
+
+Registry.register("j_ramen", handler)
+return handler

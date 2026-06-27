@@ -1,0 +1,59 @@
+-- joker_registry.lua
+-- 小丑效果注册表（路由 name → handler）
+-- 每个小丑文件通过 Registry.register(name, handler) 注册
+
+local JokerRegistry = {}
+JokerRegistry._handlers = {}
+
+--- 注册一个小丑效果
+--- @param name string 小丑名称，如 "j_banner"
+--- @param handler function 效果函数: function(context, ability) -> table|nil
+function JokerRegistry.register(name, handler)
+    if JokerRegistry._handlers[name] then
+        CS.UnityEngine.Debug.LogWarning("[JokerRegistry] Overwriting handler for: " .. name)
+    end
+    JokerRegistry._handlers[name] = handler
+    CS.UnityEngine.Debug.Log("[JokerRegistry] Registered: " .. name)
+end
+
+--- 调用指定小丑的效果
+--- @param name string 小丑名称
+--- @param context table JokerContext（C# 对象，由 XLua 传递）
+--- @param ability table ability table（Lua table）
+--- @return table|nil 效果返回值 {message, mult_mod, Xmult_mod, chip_mod, dollars, colour}
+function JokerRegistry.calculate(name, context, ability)
+    local handler = JokerRegistry._handlers[name]
+    if not handler then
+        CS.UnityEngine.Debug.LogWarning("[JokerRegistry] No handler for: " .. name)
+        return nil
+    end
+
+    -- xpcall 保护：防止单个小丑的 Lua 错误导致整个计分流程崩溃
+    local ok, result = xpcall(function()
+        return handler(context, ability)
+    end, debug.traceback)
+
+    if not ok then
+        CS.UnityEngine.Debug.LogError("[JokerRegistry] Error in '" .. name .. "':\n" .. tostring(result))
+        return nil
+    end
+
+    return result
+end
+
+--- 列出所有已注册的小丑名称
+function JokerRegistry.list()
+    local names = {}
+    for name, _ in pairs(JokerRegistry._handlers) do
+        table.insert(names, name)
+    end
+    table.sort(names)
+    return names
+end
+
+--- 检查某个小丑是否已注册
+function JokerRegistry.has(name)
+    return JokerRegistry._handlers[name] ~= nil
+end
+
+return JokerRegistry
